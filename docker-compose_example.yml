@@ -12,8 +12,6 @@ postgres:
     - ea_data:/var/lib/postgresql/data
 
   environment:
-    LDAPSERVER: changeme
-
     #password used only when creating the database file cluster
     POSTGRES_PASSWORD: changeme
     POSTGRES_CONFIG_max_connections: 25
