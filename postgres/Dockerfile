@@ -13,8 +13,6 @@ COPY sh/initialize_db.sh /
 COPY sh/entrypoint.sh /
 COPY sh/create_ssl_files.sh /
 
-#COPY conf/default.conf /postgresql.conf.d/
-#COPY conf/pg_hba.conf /postgresql.conf.d/
 COPY conf/ssl.conf /postgresql.conf.d/
 COPY conf/pg_hba.conf /
 
