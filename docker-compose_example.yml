@@ -1,0 +1,60 @@
+postgres:
+  build: postgres
+  restart: always
+  ports:
+     - 5432:5432
+
+  labels:
+    io.rancher.scheduler.affinity:host_label: changeme
+
+  #named volume created only if it does not exist
+  volumes:
+    - ea_data:/var/lib/postgresql/data
+
+  environment:
+    LDAPSERVER: changeme
+
+    #password used only when creating the database file cluster
+    POSTGRES_PASSWORD: changeme
+    POSTGRES_CONFIG_max_connections: 25
+    POSTGRES_CONFIG_shared_buffers: 3GB
+    POSTGRES_CONFIG_effective_cache_size: 4GB
+    POSTGRES_CONFIG_work_mem: 128MB
+    POSTGRES_CONFIG_maintenance_work_mem: 512MB
+    POSTGRES_CONFIG_min_wal_size: 4GB
+    POSTGRES_CONFIG_max_wal_size: 8GB
+    POSTGRES_CONFIG_checkpoint_completion_target: 0.9
+    POSTGRES_CONFIG_wal_buffers: 16MB
+    POSTGRES_CONFIG_default_statistics_target: 500
+
+    #space divided list of eionet users to be allowed (viewers are read only)
+    VIEWERS: user1 user2
+    EDITORS: user3 user4
+    REMOVE: user5
+
+    SERVER_NAME: changeme
+
+    ROOT_CRT: |-
+        -----BEGIN RSA PRIVATE KEY-----
+        changemechangemechangemechangemechangemechangemechangemechangeme
+        changemechangemechangemechangemechangemechangemechangemechangeme
+        changemechangemechangemechangemechangemechangemechangemechangeme
+        changemechangemechangemechangemechangemechangemechangemechangeme
+        -----END RSA PRIVATE KEY-----
+
+    SERVER_KEY: |-
+        -----BEGIN CERTIFICATE-----
+        changemechangemechangemechangemechangemechangemechangemechangeme
+        changemechangemechangemechangemechangemechangemechangemechangeme
+        changemechangemechangemechangemechangemechangemechangemechangeme
+        changemechangemechangemechangemechangemechangemechangemechangeme
+        -----END CERTIFICATE-----
+
+    SERVER_CRT: |-
+        -----BEGIN CERTIFICATE-----
+        changemechangemechangemechangemechangemechangemechangemechangeme
+        changemechangemechangemechangemechangemechangemechangemechangeme
+        changemechangemechangemechangemechangemechangemechangemechangeme
+        changemechangemechangemechangemechangemechangemechangemechangeme
+        -----END CERTIFICATE-----
+
