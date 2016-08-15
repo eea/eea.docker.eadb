@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-mkdir /var/ssl
+mkdir -p /var/ssl
 echo "$SERVER_CRT" > /var/ssl/server.crt
 echo "$SERVER_KEY" > /var/ssl/server.key
 echo "$ROOT_CRT" > /var/ssl/root.crt
