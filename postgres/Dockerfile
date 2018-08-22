@@ -4,6 +4,7 @@ MAINTAINER michimau <mauro.michielon@eea.europa.eu>
 
 RUN apt-get -y update && apt-get -y install \
         vim \
+        ca-certificates \
         curl
 
 COPY sh/apply_set_roles.sh /
